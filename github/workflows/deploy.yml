@@ -1,1 +1,33 @@
+on:
+push:
+branch: main
 
+permissions:
+content: write
+
+jobs:
+deploy:
+run on: ubuntu-latest
+
+
+steps:
+ - name: checkout repository
+   uses: action/setup-node@v3
+
+   name: setup Node.js
+   uses: action/setup-node@v3
+   with:
+   node:version: 18
+
+   name: install dependencies
+   npm: npm install
+
+   name: build react app
+   npm: npm run install
+
+   - name: deploy to the github pages
+   uses: peaceiris/action-gh-pages@v3
+
+     with:
+     github token: $((Github token))
+     publish_dir: ./dist
