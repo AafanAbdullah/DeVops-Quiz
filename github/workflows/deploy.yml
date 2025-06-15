@@ -29,5 +29,5 @@ steps:
    uses: peaceiris/action-gh-pages@v3
 
      with:
-     github token: $((Github token))
+     github token: ${{SECRET abdullah }}
      publish_dir: ./dist
